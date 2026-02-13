@@ -71,7 +71,7 @@ public class Listeners implements Listener {
 
 
         // what did he click?
-        if (player.getTargetBlockExact((int) player.getAttribute(Attribute.PLAYER_BLOCK_INTERACTION_RANGE).getBaseValue(), FluidCollisionMode.NEVER) != null) {
+        if (player.getTargetBlockExact((int) player.getAttribute(Attribute.BLOCK_INTERACTION_RANGE).getBaseValue(), FluidCollisionMode.NEVER) != null) {
             currentTag.add(ActionTag.ON_BLOCK);
         } else {
             currentTag.add(ActionTag.ON_AIR);

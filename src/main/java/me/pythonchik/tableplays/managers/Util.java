@@ -12,7 +12,7 @@ import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.util.Vector;
 import org.bukkit.util.io.BukkitObjectInputStream;
 import org.bukkit.util.io.BukkitObjectOutputStream;
-import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
+import java.util.Base64;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -160,7 +160,7 @@ public class Util {
 
     public static Integer getItemStackCountFromString(String baseString) {
         try {
-            ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64Coder.decodeLines(baseString));
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64.getDecoder().decode(baseString));
             BukkitObjectInputStream dataInput = new BukkitObjectInputStream(inputStream);
             int size = dataInput.readInt();
             dataInput.close();
@@ -171,7 +171,7 @@ public class Util {
 
     public static ArrayList<ItemStack> getItemsFromBase64(String baseString) {
         try {
-            ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64Coder.decodeLines(baseString));
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64.getDecoder().decode(baseString));
             BukkitObjectInputStream dataInput = new BukkitObjectInputStream(inputStream);
             int size = dataInput.readInt();
             ArrayList<ItemStack> returning_stacks = new ArrayList<>();
@@ -193,7 +193,7 @@ public class Util {
                 dataOutput.writeObject(stack);
             }
             dataOutput.close();
-            return Base64Coder.encodeLines(outputStream.toByteArray());
+            return Base64.getEncoder().encodeToString(outputStream.toByteArray());
         } catch (Exception ignored) {}
         return "Errore";
     }
@@ -252,7 +252,7 @@ public class Util {
     public static Location getBlockEyeLoc(Player player) {
         Vector direction = player.getEyeLocation().getDirection();
         Location eyeloc = player.getEyeLocation();
-        for (double i = 0; i < player.getAttribute(Attribute.PLAYER_BLOCK_INTERACTION_RANGE).getBaseValue(); i += 0.002) {
+        for (double i = 0; i < player.getAttribute(Attribute.BLOCK_INTERACTION_RANGE).getBaseValue(); i += 0.002) {
             eyeloc.add(direction.clone().multiply(0.002));
             if (eyeloc.getBlock().getType() != Material.AIR) {break;}
         }
@@ -273,7 +273,7 @@ public class Util {
     }
 
     public static Vector getClickedPosition(Player player) {
-        RayTraceResult result = player.getWorld().rayTraceBlocks(player.getEyeLocation(), player.getEyeLocation().getDirection(), (int) player.getAttribute(Attribute.PLAYER_BLOCK_INTERACTION_RANGE).getBaseValue());
+        RayTraceResult result = player.getWorld().rayTraceBlocks(player.getEyeLocation(), player.getEyeLocation().getDirection(), (int) player.getAttribute(Attribute.BLOCK_INTERACTION_RANGE).getBaseValue());
 
         if (result == null || result.getHitBlock() == null) {
             return null; // No block hit
