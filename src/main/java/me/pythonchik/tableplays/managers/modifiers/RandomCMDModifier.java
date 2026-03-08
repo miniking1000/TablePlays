@@ -10,6 +10,9 @@ public class RandomCMDModifier implements BaseModifier {
 
     @Override
     public boolean apply(ModifierContext context, String modifier, List<String> allModifiers) {
+        /*
+        When called, adds a random value to the custom_model_data. from 0 to 'bound'
+         */
         AtomicBoolean flag = new AtomicBoolean(false);
         context.getItemStack().ifPresent(stack -> {
             if (stack.getItemMeta() != null) {

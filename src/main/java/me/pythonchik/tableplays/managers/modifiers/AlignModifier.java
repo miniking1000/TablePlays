@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class AlignModifier implements BaseModifier {
+    /*
+    Applied on spawned item, and alines
+    */
     @Override
     public boolean apply(ModifierContext context, String modifier, List<String> allModifiers) {
         AtomicBoolean flag = new AtomicBoolean(false);

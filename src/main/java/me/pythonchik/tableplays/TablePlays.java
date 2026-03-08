@@ -91,10 +91,10 @@ public final class TablePlays extends JavaPlugin implements Listener {
         config = YamlConfiguration.loadConfiguration(configFile);
         if (config.getBoolean("allow_files")) {
             File savingFile = new File(getDataFolder(), "saved.yml");
-            if (!configFile.exists()) {
+            if (!savingFile.exists()) {
                 saveResource("saved.yml", false);
             }
-            data = YamlConfiguration.loadConfiguration(configFile);
+            data = YamlConfiguration.loadConfiguration(savingFile);
         }
 
         String lang = config.getString("lang", "en");  // default to "ru" if not set
