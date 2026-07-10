@@ -6,6 +6,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Random Custom Model Data Plus. Adds a random number from 0 to a specified bound (exclusive) to the custom model data.
+ * 
+ * Modifier usage: {@code RCMDP#} (where # is the bound)
+ */
 public class RandomCMDModifier implements BaseModifier {
 
     @Override

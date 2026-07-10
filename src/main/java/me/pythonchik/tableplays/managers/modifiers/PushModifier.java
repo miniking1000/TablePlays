@@ -11,6 +11,11 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Stacks the item on top of other existing items at the interaction location by checking their hitboxes and pushing it up.
+ * 
+ * Modifier usage: {@code PUSH}
+ */
 public class PushModifier implements BaseModifier {
     @Override
     public boolean apply(ModifierContext context, String modifier, List<String> allModifiers) {

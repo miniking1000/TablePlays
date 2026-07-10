@@ -72,6 +72,7 @@
       {"model": {"type": "minecraft:model","model": "m3vtg:bundles/domino"},"threshold": 33101},
       {"model": {"type": "minecraft:model","model": "m3vtg:bundles/chess"},"threshold": 33102},
       {"model": {"type": "minecraft:model","model": "m3vtg:bundles/checkers"},"threshold": 33103},
+      {"model": {"type": "minecraft:model","model": "m3vtg:bundles/nardy"},"threshold": 33104},
 
       {"model": {"type": "minecraft:model","model": "m3vtg:poker/bundles/any"},"threshold": 33110},
       {"model": {"type": "minecraft:model","model": "m3vtg:poker/bundles/white"},"threshold": 33111},
@@ -102,6 +103,10 @@
       {"model": {"type": "minecraft:model","model": "m3vtg:chess/queen_b"},"threshold": 33222},
 
       {"model": {"type": "minecraft:model","model": "m3vtg:board"},"threshold": 33230},
+
+      {"model": {"type": "minecraft:model","model": "m3vtg:nardy/board"},"threshold": 33240},
+      {"model": {"type": "minecraft:model","model": "m3vtg:nardy/white"},"threshold": 33241},
+      {"model": {"type": "minecraft:model","model": "m3vtg:nardy/black"},"threshold": 33242},
 
       {"model": {"type": "minecraft:model","model": "m3vtg:domino/00"},"threshold": 33300},
       {"model": {"type": "minecraft:model","model": "m3vtg:domino/10"},"threshold": 33301},

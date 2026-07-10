@@ -12,6 +12,8 @@ public class RecipeManager {
     public static void init(Plugin plugin) {
         dice(plugin);
         board(plugin);
+        nardyboard(plugin);
+        nardy(plugin);
 
         // these 6 need to fill after crafting
         cards36(plugin);
@@ -49,6 +51,32 @@ public class RecipeManager {
         );
         recipe.setIngredient('B', Material.BIRCH_SLAB);
         recipe.setIngredient('S',Material.DARK_OAK_SLAB);
+        Bukkit.addRecipe(recipe);
+    }
+
+    private static void nardyboard(Plugin plugin){
+        ShapedRecipe recipe = new ShapedRecipe(new NamespacedKey(plugin,"nardyboard"), ItemCreator.getNardyBoard());
+        recipe.shape(
+                "BS",
+                "SB"
+        );
+        recipe.setIngredient('B', Material.BIRCH_SLAB);
+        recipe.setIngredient('S', Material.SPRUCE_SLAB);
+        Bukkit.addRecipe(recipe);
+    }
+
+    private static void nardy(Plugin plugin){
+        ShapedRecipe recipe = new ShapedRecipe(new NamespacedKey(plugin,"nardy"), ItemCreator.getNardy());
+        recipe.shape(
+                "BBB",
+                "WSD",
+                " L "
+        );
+        recipe.setIngredient('B', Material.BONE);
+        recipe.setIngredient('D',Material.BLACK_DYE);
+        recipe.setIngredient('S', Material.STRING);
+        recipe.setIngredient('W',Material.WHITE_DYE);
+        recipe.setIngredient('L', Material.LEATHER);
         Bukkit.addRecipe(recipe);
     }
 

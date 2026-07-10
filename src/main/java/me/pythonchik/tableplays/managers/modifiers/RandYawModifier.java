@@ -4,6 +4,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Sets a random yaw (0 to 359 degrees) for the item's placement location.
+ * 
+ * Modifier usage: {@code RANDYAW}
+ */
 public class RandYawModifier implements BaseModifier {
 
     @Override

@@ -27,7 +27,7 @@ public final class TablePlays extends JavaPlugin implements Listener {
     }
 
     public void reload() {
-        TablePlays.instance.saveConfig();
+        //TablePlays.instance.saveConfig(); WHY would i first save the config and maybe override saved data with null?
         TablePlays.instance.loadConfig();
         new translationManager(translations);
         registerDefaults();
@@ -40,6 +40,7 @@ public final class TablePlays extends JavaPlugin implements Listener {
         TablePlays.defaults.put("default.checker", ItemCreator.getCheckerDeck());
         TablePlays.defaults.put("default.chess", ItemCreator.getChessDeck());
         TablePlays.defaults.put("default.domino", ItemCreator.getDominoDeck());
+        TablePlays.defaults.put("default.nardy", ItemCreator.getNardyDeck());
     }
 
     @Override

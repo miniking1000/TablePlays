@@ -5,6 +5,11 @@ import org.bukkit.Location;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Center Grid. Snaps the placement location to the center of a grid cell on the block with a specified number of divisions per side.
+ * 
+ * Modifier usage: {@code CGRID#} (where # is the number of divisions)
+ */
 public class CGridModifier implements BaseModifier {
 
     @Override

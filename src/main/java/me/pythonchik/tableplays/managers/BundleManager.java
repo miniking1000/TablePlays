@@ -79,7 +79,7 @@ public class BundleManager {
         if (!container.has(Util.ItemTags.Bundle.getValue(), PersistentDataType.STRING)) return false; // it's bundle but not bundle?
         if (!container.has(Util.ItemTags.BundleMeta.getValue(), PersistentDataType.STRING)) return false; // does not have necessary meta
         if (!container.has(Util.ItemTags.BundleData.getValue(), PersistentDataType.STRING)) return false; // does not have necessary data
-        if (!container.get(Util.ItemTags.BundleMeta.getValue(), PersistentDataType.STRING).matches("(data|uuid);[123456789]\\d*;(queue|stack|random)")) return false; // meta is in wrong format
+        if (!container.get(Util.ItemTags.BundleMeta.getValue(), PersistentDataType.STRING).matches("(data|uuid);[0-9]\\d*;(queue|stack|random)")) return false; // meta is in wrong format
         return true;
     }
 

@@ -6,6 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class commands implements CommandExecutor, TabCompleter {
         if (sender instanceof Player) {
             if (command.getName().equals("gimme")) {
                 Player player = (Player) sender;
-                if (args.length == 0) {
+                if (args.length == 0 || (args.length == 2 && args[0].equals("<no") && args[1].equals("arguments>"))) {
                     player.getInventory().addItem(ItemCreator.getDice());
                     player.getInventory().addItem(ItemCreator.getBoard());
                     player.getInventory().addItem(ItemCreator.getCheckers());
@@ -26,6 +27,8 @@ public class commands implements CommandExecutor, TabCompleter {
                     player.getInventory().addItem(ItemCreator.get52bundle());
                     player.getInventory().addItem(ItemCreator.get54bundle());
                     player.getInventory().addItem(ItemCreator.getDomino());
+                    player.getInventory().addItem(ItemCreator.getNardyBoard());
+                    player.getInventory().addItem(ItemCreator.getNardy());
                     for (int i=0; i <= 7; i++) {
                         player.getInventory().addItem(ItemCreator.getChip(i));
                     }
@@ -67,6 +70,14 @@ public class commands implements CommandExecutor, TabCompleter {
                             player.getInventory().addItem(ItemCreator.get54bundle());
                             player.sendMessage("[TablePlays] Done.");
                             break;
+                        case "nardy":
+                            player.getInventory().addItem(ItemCreator.getNardy());
+                            player.sendMessage("[TablePlays] Done.");
+                            break;
+                        case "nardyboard":
+                            player.getInventory().addItem(ItemCreator.getNardyBoard());
+                            player.sendMessage("[TablePlays] Done.");
+                            break;
                         default:
                             player.sendMessage("[TablePlays] Not done. If you want to give yourself every item then type \"/gimme\" with no arguments");
                             break;
@@ -91,34 +102,37 @@ public class commands implements CommandExecutor, TabCompleter {
         }
         return true;
     }
-
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equals("gimme")) {
-            if (args.length == 1) {
-                List<String> completions = new ArrayList<>();
-                completions.add("dice");
-                completions.add("board");
-                completions.add("domino");
-                completions.add("chess");
-                completions.add("checkers");
-                completions.add("card36");
-                completions.add("card52");
-                completions.add("card54");
-                completions.add("chips");
-                completions.add("chip_bundles");
-                completions.add("<no arguments>");
-                return completions;
-            } else if (args.length == 2 && args[0].equals("chips")) {
-                List<String> completions = new ArrayList<>();
-                completions.add("<sub-type-number>");
-                return completions;
-            } else if (args.length == 2 && args[0].equals("chip_bundles")) {
-                List<String> completions = new ArrayList<>();
-                completions.add("<sub-type-number>");
-                return completions;
-            }
+        if (!command.getName().equalsIgnoreCase("gimme")) {
+            return List.of();
         }
-        return List.of();
+
+        List<String> completions = new ArrayList<>();
+        if (args.length == 1) {
+            List<String> options = List.of(
+                    "dice",
+                    "board",
+                    "domino",
+                    "chess",
+                    "checkers",
+                    "card36",
+                    "card52",
+                    "card54",
+                    "chips",
+                    "chip_bundles",
+                    "nardy",
+                    "nardyboard",
+                    "<no arguments>"
+            );
+            StringUtil.copyPartialMatches(args[0], options, completions);
+        } else if (args.length == 2 &&
+                (args[0].equalsIgnoreCase("chips") || args[0].equalsIgnoreCase("chip_bundles"))) {
+
+            StringUtil.copyPartialMatches(args[1], List.of("<sub-type-number>"), completions);
+        }
+
+        completions.sort(String.CASE_INSENSITIVE_ORDER);
+        return completions;
     }
 }
