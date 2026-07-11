@@ -6,6 +6,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Resets custom model data of the item to the base model from the config (what you get from craft).
+ * 
+ * Modifier usage: {@code RESETCMD}
+ */
 public class ResetCMDModifier implements BaseModifier {
 
     @Override

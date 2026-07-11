@@ -63,6 +63,23 @@ public class Util {
             return toReturn;
         }
 
+        public static ActionTagSet of(EnumSet<ActionTag> enumSet) {
+            ActionTagSet toReturn = new ActionTagSet();
+            for (ActionTag tag : enumSet) {
+                toReturn.add(tag);
+            }
+            return toReturn;
+        }
+
+        public static ActionTagSet of(ActionTag first, ActionTag... rest) {
+            ActionTagSet result = new ActionTagSet();
+            result.add(first);
+            for (ActionTag e : rest)
+                result.add(e);
+            return result;
+        }
+
+
         private int value;
 
         public ActionTagSet() {

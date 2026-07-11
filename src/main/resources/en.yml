@@ -67,6 +67,12 @@ board:
     - "&7A board for playing chess and checkers"
     - "&7To remove it, click on the lower part of the board"
 
+nardyboard:
+  name: "&fNardy board"
+  lore:
+    - "&7A board for playing Nardy"
+    - "&7To remove it, click on the lower part of the board"
+
 chess:
   name: "&fChess Piece"
   lore:
@@ -136,6 +142,27 @@ checker:
   name: "&fChecker"
   lore:
     - "&7An unknown checker"
+  s1:
+    name: "&fChecker"
+    lore:
+      - "&7White checker"
+  s2:
+    name: "&fChecker"
+    lore:
+      - "&7Black checker"
+
+nardy:
+  name: "&fNardy piece"
+  lore:
+    - "&7An unknown piece"
+  s1:
+    name: "&fNardy piece"
+    lore:
+      - "&7White piece"
+  s2:
+    name: "&fNarcy piece"
+    lore:
+      - "&7Black piece"
 
 bundle:
   name: "&fBag of items"
@@ -161,6 +188,11 @@ bundle:
     lore:
       - "&7Stores only checkers"
       - "&7There are currently %BNITEMS%/%BMI% checkers in the bag"
+  s4:
+    name: "&fNardy bag"
+    lore:
+      - "&7Stores only nardy pieces"
+      - "&7There are currently %BNITEMS%/%BMI% pieces in the bag"
   s10:
     name: "&fChip bag"
     lore:

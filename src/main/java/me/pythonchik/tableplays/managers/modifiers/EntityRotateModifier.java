@@ -5,6 +5,11 @@ import org.bukkit.entity.Entity;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Entity Rotate. Rotates the clicked interaction's display entity's yaw to the nearest multiple of a specified number of degrees.
+ * 
+ * Modifier usage: {@code ERT#} (where # is the degrees, e.g., ERT90)
+ */
 public class EntityRotateModifier implements BaseModifier {
     //rot#
     //rot90 - rotate item to the nearest multiple of 90 degrees

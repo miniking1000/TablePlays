@@ -26,6 +26,8 @@ public class commands implements CommandExecutor, TabCompleter {
                     player.getInventory().addItem(ItemCreator.get52bundle());
                     player.getInventory().addItem(ItemCreator.get54bundle());
                     player.getInventory().addItem(ItemCreator.getDomino());
+                    player.getInventory().addItem(ItemCreator.getNardyBoard());
+                    player.getInventory().addItem(ItemCreator.getNardy());
                     for (int i=0; i <= 7; i++) {
                         player.getInventory().addItem(ItemCreator.getChip(i));
                     }
@@ -67,6 +69,14 @@ public class commands implements CommandExecutor, TabCompleter {
                             player.getInventory().addItem(ItemCreator.get54bundle());
                             player.sendMessage("[TablePlays] Done.");
                             break;
+                        case "nardy":
+                            player.getInventory().addItem(ItemCreator.getNardy());
+                            player.sendMessage("[TablePlays] Done.");
+                            break;
+                        case "nardyboard":
+                            player.getInventory().addItem(ItemCreator.getNardyBoard());
+                            player.sendMessage("[TablePlays] Done.");
+                            break;
                         default:
                             player.sendMessage("[TablePlays] Not done. If you want to give yourself every item then type \"/gimme\" with no arguments");
                             break;
@@ -91,7 +101,6 @@ public class commands implements CommandExecutor, TabCompleter {
         }
         return true;
     }
-
     @Override
     public List<String> onTabComplete(@NotNull CommandSender sender, Command command, @NotNull String label, String @NotNull [] args) {
         if (command.getName().equals("gimme")) {
@@ -119,6 +128,32 @@ public class commands implements CommandExecutor, TabCompleter {
                 return completions;
             }
         }
-        return List.of();
+
+        List<String> completions = new ArrayList<>();
+        if (args.length == 1) {
+            List<String> options = List.of(
+                    "dice",
+                    "board",
+                    "domino",
+                    "chess",
+                    "checkers",
+                    "card36",
+                    "card52",
+                    "card54",
+                    "chips",
+                    "chip_bundles",
+                    "nardy",
+                    "nardyboard",
+                    "<no arguments>"
+            );
+            StringUtil.copyPartialMatches(args[0], options, completions);
+        } else if (args.length == 2 &&
+                (args[0].equalsIgnoreCase("chips") || args[0].equalsIgnoreCase("chip_bundles"))) {
+
+            StringUtil.copyPartialMatches(args[1], List.of("<sub-type-number>"), completions);
+        }
+
+        completions.sort(String.CASE_INSENSITIVE_ORDER);
+        return completions;
     }
 }

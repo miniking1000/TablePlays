@@ -20,6 +20,7 @@ public class ModifierManager {
         MODIFIER_MAP.put(Pattern.compile("EFLIP"), new EntityFlipModifier());
         MODIFIER_MAP.put(Pattern.compile("FLIP"), new FlipModifier());
         MODIFIER_MAP.put(Pattern.compile("HIDESUB[1-9]\\d*"), new HideSubModifier());
+        MODIFIER_MAP.put(Pattern.compile("NARDYGRID"), new NardyGridModifier());
         MODIFIER_MAP.put(Pattern.compile("PUSH"), new PushModifier());
         MODIFIER_MAP.put(Pattern.compile("RCMDP[1-9]\\d*"), new RandomCMDModifier());
         MODIFIER_MAP.put(Pattern.compile("RANDYAW"), new RandYawModifier());

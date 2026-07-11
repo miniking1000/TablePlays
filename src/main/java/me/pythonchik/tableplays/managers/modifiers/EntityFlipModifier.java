@@ -5,6 +5,11 @@ import org.bukkit.entity.Entity;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Flips the pitch of the clicked interaction's display entity (between 90 and -90 degrees).
+ * 
+ * Modifier usage: {@code EFLIP}
+ */
 public class EntityFlipModifier implements BaseModifier {
 
 

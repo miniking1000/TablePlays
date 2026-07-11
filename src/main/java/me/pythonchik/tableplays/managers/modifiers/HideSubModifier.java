@@ -8,6 +8,11 @@ import me.pythonchik.tableplays.managers.ValuesManager;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Hides the current subtype by storing it in extra data, sets the subtype to a specified number, and resets the custom model data to base.
+ * 
+ * Modifier usage: {@code HIDESUB#} (where # is the new subtype)
+ */
 public class HideSubModifier implements BaseModifier {
     @Override
     public boolean apply(ModifierContext context, String modifier, List<String> allModifiers) {

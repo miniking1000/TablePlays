@@ -1,5 +1,6 @@
 package me.pythonchik.tableplays.managers;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -10,7 +11,10 @@ import java.util.ArrayList;
 public class CardCreator {
 
     public static ItemStack getEmpty36bundle() {
-        ItemStack bundle = new ItemStack(Material.WARPED_FUNGUS_ON_A_STICK);
+        ItemStack bundle = Bukkit.getItemFactory().createItemStack(
+                "minecraft:warped_fungus_on_a_stick[!minecraft:max_damage]"
+        );
+
         ItemMeta meta = bundle.getItemMeta();
         String type = Util.ItemTypes.Bundle.getValue();
         if (meta != null){
@@ -42,7 +46,10 @@ public class CardCreator {
     }
 
     public static ItemStack getEmpty52bundle() {
-        ItemStack bundle = new ItemStack(Material.WARPED_FUNGUS_ON_A_STICK);
+        ItemStack bundle = Bukkit.getItemFactory().createItemStack(
+                "minecraft:warped_fungus_on_a_stick[!minecraft:max_damage]"
+        );
+
         ItemMeta meta = bundle.getItemMeta();
         String type = Util.ItemTypes.Bundle.getValue();
         if (meta != null){
@@ -74,7 +81,10 @@ public class CardCreator {
     }
 
     public static ItemStack getEmpty54bundle() {
-        ItemStack bundle = new ItemStack(Material.WARPED_FUNGUS_ON_A_STICK);
+        ItemStack bundle = Bukkit.getItemFactory().createItemStack(
+                "minecraft:warped_fungus_on_a_stick[!minecraft:max_damage]"
+        );
+
         ItemMeta meta = bundle.getItemMeta();
         String type = Util.ItemTypes.Bundle.getValue();
         if (meta != null){
@@ -142,7 +152,10 @@ public class CardCreator {
 
 
     public static ItemStack getCard(int subType) {
-        ItemStack card = new ItemStack(Material.WARPED_FUNGUS_ON_A_STICK);
+        ItemStack card = Bukkit.getItemFactory().createItemStack(
+                "minecraft:warped_fungus_on_a_stick[!minecraft:max_damage]"
+        );
+
         ItemMeta meta = card.getItemMeta();
         String type = Util.ItemTypes.Card.getValue();
         if (meta != null) {

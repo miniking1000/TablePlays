@@ -6,7 +6,15 @@ import org.bukkit.entity.Interaction;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Aligns the interaction to the center of another interaction (X and Z coordinates).
+ * 
+ * Modifier usage: {@code ALIGN}
+ */
 public class AlignModifier implements BaseModifier {
+    /*
+    Applied on spawned item, and alines
+    */
     @Override
     public boolean apply(ModifierContext context, String modifier, List<String> allModifiers) {
         AtomicBoolean flag = new AtomicBoolean(false);

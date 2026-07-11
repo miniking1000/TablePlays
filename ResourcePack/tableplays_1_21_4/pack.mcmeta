@@ -1,6 +1,9 @@
 {
   	"pack": {
-    		"pack_format": 46,
-    		"description": "PablePlaysV2 1.21.4"
+		"pack_format": 46,
+		"supported_formats": [46, 99],
+		"min_format": 46,
+		"max_format": 99,
+		"description": "PablePlaysV2 1.21.4-26.2"
 	 }
 }

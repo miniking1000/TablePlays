@@ -5,6 +5,11 @@ import org.bukkit.Location;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Bottom-Left Grid. Snaps the placement location to a grid on the block with a specified number of divisions per side.
+ * 
+ * Modifier usage: {@code BLGRID#} (where # is the number of divisions)
+ */
 public class BLGRIDModifier implements BaseModifier {
 
     @Override

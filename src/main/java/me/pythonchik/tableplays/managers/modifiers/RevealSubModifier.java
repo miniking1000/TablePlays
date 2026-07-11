@@ -11,6 +11,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Reveal Subtype. Restores the original subtype hidden by HIDESUB#, resets the custom model data, and updates the display entity.
+ * 
+ * Modifier usage: {@code REVSUB}
+ */
 public class RevealSubModifier implements BaseModifier {
 
     @Override

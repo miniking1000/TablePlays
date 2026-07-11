@@ -5,6 +5,11 @@ import org.bukkit.Location;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Entity Center Grid. Similar to CGRID, but snaps relative to the clicked interaction entity's width and position instead of a block.
+ * 
+ * Modifier usage: {@code ECGRID#} (where # is the number of divisions)
+ */
 public class ECGridModifier implements BaseModifier {
 
     @Override
